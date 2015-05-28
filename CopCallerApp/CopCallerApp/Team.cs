@@ -46,6 +46,7 @@ namespace CopCallerApp {
         public static void loadAll() {
             try {
                 Team.teams = new List<Team>();
+                Team.teamNames = new List<string>();
                 XElement data = XElement.Load(CONFIG_FILE);
                 IEnumerable<XElement> teams = data.Descendants("team");
 
@@ -66,6 +67,7 @@ namespace CopCallerApp {
                     }
                     Team.teams.Add(t);
                 }
+                PoliceVehicle.DISTANCE_MULTIPLIER = float.Parse(new List<XElement>(data.Descendants("distanceMultiplier")).First().Value);
                 UI.Notify("Team data loading complete. All is well.");
             } catch (Exception e) {
                 UI.Notify(e.Message);

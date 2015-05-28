@@ -32,6 +32,7 @@ namespace CopCallerApp {
                     GTA.Menu menu = new GTA.Menu("Cop Caller App", menuItems.ToArray());
                     menu.HeaderColor = Color.DarkBlue;
                     menu.SelectedItemColor = Color.Aqua;
+                    menu.FooterColor = Color.White;
                     View.AddMenu(menu);
                     this.menuState = MenuState.OPEN;
                 } else {
