@@ -11,6 +11,8 @@ namespace CopCallerApp {
         protected bool isPoliceOfficer;
 
         public EmergencyCrewMember(string model, bool isPoliceOfficer = true) {
+            int mHash = Function.Call<int>(Hash.GET_HASH_KEY, model);
+            Function.Call(Hash.REQUEST_MODEL, mHash);
             this.m = new Model(model);
             this.isPoliceOfficer = isPoliceOfficer;
         }
