@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages>
+	<message key="app-button-spawn-label">$1 csapat elhelyezése</message>
+	<message key="app-menu-title">Segélyhívó</message>
+	<message key="app-notify-config-reload">Beállítások újratöltése.</message>
+	<message key="app-notify-team-spawned">$1 csapat sikeresen elhelyezve.</message>
+	<message key="app-notify-loading-finished">A beállítások sikeresen betöltődtek. Minden rendben.</message>
+	<message key="app-something-went-wrong">Baj van: $1</message>
+</messages>

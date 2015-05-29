@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messages>
+	<message key="app-button-spawn-label">Spawn a(n) $1 team</message>
+	<message key="app-menu-title">Cop Caller App</message>
+	<message key="app-notify-config-reload">Reloading configuration file.</message>
+	<message key="app-notify-team-spawned">$1 team spawned.</message>
+	<message key="app-notify-loading-finished">Config data loaded. All is well.</message>
+	<message key="app-something-went-wrong">There was an error: $1</message>
+</messages>

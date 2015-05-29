@@ -1,15 +1,15 @@
 ﻿using GTA;
 
 namespace CopCallerApp {
-    public class PoliceVehicle {
+    public class EmergencyVehicle {
         protected Vehicle vehicle;
         protected static GTA.Math.Vector3 spawnPos;
         public static float DISTANCE_MULTIPLIER = 60.0f;
 
-        public PoliceVehicle(string model) {
-            PoliceVehicle.spawnPos = Game.Player.Character.Position + (Game.Player.Character.ForwardVector * DISTANCE_MULTIPLIER);
-            vehicle = World.CreateVehicle(model, PoliceVehicle.spawnPos);
-            // so it will unspawn like a normal cop car
+        public EmergencyVehicle(string model) {
+            EmergencyVehicle.spawnPos = Game.Player.Character.Position + (Game.Player.Character.ForwardVector * DISTANCE_MULTIPLIER);
+            vehicle = World.CreateVehicle(model, EmergencyVehicle.spawnPos);
+            // so it will unspawn like a normal emergency vehicle
             vehicle.IsPersistent = false;
         }
 

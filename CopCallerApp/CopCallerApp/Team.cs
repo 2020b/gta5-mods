@@ -7,30 +7,16 @@ using System.Linq;
 
 namespace CopCallerApp {
     public class Team {
-        protected const string CONFIG_FILE = "CopCallerApp.xml";
-
-        string vehicleModel { get; set; }
-        protected List<String> officerModels = new List<String>();
+        public string vehicleModel { get; set; }
+        protected List<String> memberModels = new List<String>();
         protected List<string> weapons = new List<string>();
         protected List<int> ammoCounts = new List<int>();
+        protected bool isPoliceTeam;
 
         public string name { get; set; }
 
         protected static List<Team> teams = new List<Team>();
         protected static List<string> teamNames = new List<string>();
-
-        public void spawnTeam() {
-            PoliceVehicle vehicle = new PoliceVehicle(this.vehicleModel);
-            Vehicle v = vehicle.getVehicle();
-            Random rnd = new Random();
-            for (int seat = -1; seat <= v.PassengerSeats; seat++) {
-                PoliceOfficer p = new PoliceOfficer(this.officerModels[rnd.Next(this.officerModels.Count)]);
-                p.addWeapons(this.weapons);
-                p.addWeaponAmmoCounts(this.ammoCounts);
-                p.spawnIntoVehicle(vehicle, seat);
-            }
-            vehicle.spawn();
-        }
 
         public static Team getByName(string name) {
             List<string> tnames = Team.teamNames;
@@ -43,35 +29,40 @@ namespace CopCallerApp {
             return Team.teamNames;
         }
 
-        public static void loadAll() {
-            try {
-                Team.teams = new List<Team>();
-                Team.teamNames = new List<string>();
-                XElement data = XElement.Load(CONFIG_FILE);
-                IEnumerable<XElement> teams = data.Descendants("team");
+        public static void clearAll() {
+            Team.teams = new List<Team>();
+            Team.teamNames = new List<string>();
+        }
 
-                foreach (XElement team in teams) {
-                    Team t = new Team();
-                    // :|
-                    t.name = new List<XElement>(team.Descendants("name")).First().Value;
-                    Team.teamNames.Add(t.name);
-                    t.vehicleModel = new List<XElement>(team.Descendants("vehicle")).First().Value;
-                    IEnumerable<XElement> officers = team.Descendants("officer");
-                    foreach (XElement cop in officers) {
-                        t.officerModels.Add(new List<XElement>(cop.Descendants("model")).First().Value);
-                        IEnumerable<XElement> weapons = cop.Descendants("weapon");
-                        foreach (XElement weapon in weapons) {
-                            t.weapons.Add(new List<XElement>(weapon.Descendants("type")).First().Value);
-                            t.ammoCounts.Add(int.Parse(new List<XElement>(team.Descendants("ammoCount")).First().Value));
-                        }
-                    }
-                    Team.teams.Add(t);
-                }
-                PoliceVehicle.DISTANCE_MULTIPLIER = float.Parse(new List<XElement>(data.Descendants("distanceMultiplier")).First().Value);
-                UI.Notify("Team data loading complete. All is well.");
-            } catch (Exception e) {
-                UI.Notify(e.Message);
+        public static void add(Team t) {
+            Team.teams.Add(t);
+            Team.teamNames.Add(t.name);
+        }
+
+        public void addWeapon(string weaponName, int ammoCount) {
+            this.weapons.Add(weaponName);
+            this.ammoCounts.Add(ammoCount);
+        }
+
+        public void addCrewModel(string model) {
+            this.memberModels.Add(model);
+        }
+
+        public void setIsPoliceTeam(bool yes) {
+            this.isPoliceTeam = yes;
+        }
+
+        public void spawnTeam() {
+            EmergencyVehicle vehicle = new EmergencyVehicle(this.vehicleModel);
+            Vehicle v = vehicle.getVehicle();
+            Random rnd = new Random();
+            for (int seat = -1; seat <= v.PassengerSeats; seat++) {
+                EmergencyCrewMember p = new EmergencyCrewMember(this.memberModels[rnd.Next(this.memberModels.Count)]);
+                p.addWeapons(this.weapons);
+                p.addWeaponAmmoCounts(this.ammoCounts);
+                p.spawnIntoVehicle(vehicle, seat);
             }
+            vehicle.spawn();
         }
     }
 }

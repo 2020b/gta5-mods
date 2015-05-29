@@ -46,8 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PoliceOfficer.cs" />
-    <Compile Include="PoliceVehicle.cs" />
+    <Compile Include="EmergencyCrewMember.cs" />
+    <Compile Include="EmergencyVehicle.cs" />
+    <Compile Include="Messages.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
