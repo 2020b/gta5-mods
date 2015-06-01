@@ -57,7 +57,7 @@ namespace CopCallerApp {
             Vehicle v = vehicle.getVehicle();
             Random rnd = new Random();
             for (int seat = -1; seat <= v.PassengerSeats; seat++) {
-                EmergencyCrewMember p = new EmergencyCrewMember(this.memberModels[rnd.Next(this.memberModels.Count)]);
+                EmergencyCrewMember p = new EmergencyCrewMember(this.memberModels[rnd.Next(this.memberModels.Count)], this.isPoliceTeam);
                 p.addWeapons(this.weapons);
                 p.addWeaponAmmoCounts(this.ammoCounts);
                 p.spawnIntoVehicle(vehicle, seat);

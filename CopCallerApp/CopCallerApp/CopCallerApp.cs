@@ -39,6 +39,7 @@ namespace CopCallerApp {
                     menu.HeaderColor = Color.DarkBlue;
                     menu.SelectedItemColor = Color.Aqua;
                     menu.FooterColor = Color.White;
+                    menu.FooterHeight = 5;
                     View.AddMenu(menu);
                     this.menuState = MenuState.OPEN;
                 } else {
