@@ -5,7 +5,7 @@
 	<teams>
 		<team>
 			<name>NOOSE</name>
-			<vehicle>riot</vehicle>
+			<vehicle>fibsuv</vehicle>
 			<isPoliceTeam>yes</isPoliceTeam>
 			<officers>
 				<officer>
@@ -13,10 +13,10 @@
 					<weapons>
 						<weapon>
 							<type>weapon_specialcarbine</type>
-							<ammoCount>600</ammoCount>
+							<ammoCount>60000</ammoCount>
 						</weapon>
 						<weapon>
-							<type>weapon_combatpistol</type>
+							<type>weapon_stickybomb</type>
 							<ammoCount>150</ammoCount>
 						</weapon>
 					</weapons>
@@ -25,18 +25,18 @@
 		</team>
 		<team>
 			<name>LSPD</name>
-			<vehicle>police2</vehicle>
+			<vehicle>heavycutter</vehicle>
 			<isPoliceTeam>yes</isPoliceTeam>
 			<officers>
 				<officer>
 					<model>s_m_y_cop_01</model>
 					<weapons>
 						<weapon>
-							<type>weapon_advancedrifle</type>
+							<type>weapon_pumpshotgun</type>
 							<ammoCount>600</ammoCount>
 						</weapon>
 						<weapon>
-							<type>weapon_combatpistol</type>
+							<type>weapon_teargas</type>
 							<ammoCount>150</ammoCount>
 						</weapon>
 					</weapons>
@@ -52,12 +52,12 @@
 					<model>s_m_y_swat_01</model>
 					<weapons>
 						<weapon>
-							<type>weapon_advancedrifle</type>
+							<type>weapon_rpg</type>
 							<ammoCount>600</ammoCount>
 						</weapon>
 						<weapon>
-							<type>weapon_combatpistol</type>
-							<ammoCount>150</ammoCount>
+							<type>weapon_minigun</type>
+							<ammoCount>150000000000000000000</ammoCount>
 						</weapon>
 					</weapons>
 				</officer>
@@ -65,11 +65,11 @@
 					<model>s_m_y_sheriff_01</model>
 					<weapons>
 						<weapon>
-							<type>weapon_assaultshotgun</type>
-							<ammoCount>300</ammoCount>
+							<type>weapon_minigun</type>
+							<ammoCount>3000000000000</ammoCount>
 						</weapon>
 						<weapon>
-							<type>weapon_combatpistol</type>
+							<type>weapon_stungun</type>
 							<ammoCount>150</ammoCount>
 						</weapon>
 					</weapons>
@@ -77,16 +77,19 @@
 			</officers>
 		</team>
 		<team>
-			<name>LSFD</name>
-			<vehicle>firetruk</vehicle>
-			<isPoliceTeam>no</isPoliceTeam>
-			<officers>
-				<officer>
-					<model>s_m_y_fireman_01</model>
-					<weapons>
-					</weapons>
+			<name>Merryweather</name>
+			<vehicle>tacovan</vehicle>
+			<isPoliceTeam>yes</isPoliceTeam>
+			</officer>
+			<officer>
+				      <model>s_m_y_fireman_01</model>
+				      <weapons>
+				      	        <weapon>
+			                                <type>weapon_rpg</type>
+							<ammoCount>150</ammoCount>
+						</weapon>
+			                </weapons>
 				</officer>
 			</officers>
-		</team>
 	</teams>
 </config>
